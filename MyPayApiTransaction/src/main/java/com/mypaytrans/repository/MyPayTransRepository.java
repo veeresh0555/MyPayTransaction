@@ -10,8 +10,6 @@ import com.mypaytrans.model.TransactionHistory;
 
 @Repository
 public interface MyPayTransRepository extends JpaRepository<TransactionHistory, Long> {
-
-	
 	
 	@Query("select frmmobilenumber,tomobilenumber,amount,transdate,comment from TransactionHistory where frmmobilenumber=:frmmobilenumber")
 	public List<TransactionHistory> findBymobileno(@Param("frmmobilenumber")long frmmobilenumber);

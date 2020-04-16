@@ -27,4 +27,8 @@ public interface TransactionClient {
 	@PostMapping("/checktransreq")
 	public ResponseEntity<Customerdetails> checktransRequest(@RequestBody TransRequest transreq);
 	
+	/*
+	 * @PostMapping("/savecustomer") public ResponseEntity<Customerdetails>
+	 * createOrUpdateCustomer(Customerdetails custdetail);
+	 */
 }

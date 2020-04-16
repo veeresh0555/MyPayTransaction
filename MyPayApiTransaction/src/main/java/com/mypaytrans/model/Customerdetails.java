@@ -2,37 +2,20 @@ package com.mypaytrans.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  * @author veeru
  *
  */
-@Entity
-@Table(name="customer")
 public class Customerdetails {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long cid;
 	
 
 	private String cname;
 	
 	
-	private String mobileno;
+	private long mobileno;
 	
-	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JsonIgnore
 	private List<BankAccounts> baccounts;
 
 	public long getCid() {
@@ -50,12 +33,11 @@ public class Customerdetails {
 	public void setCname(String cname) {
 		this.cname = cname;
 	}
-
-	public String getMobileno() {
+	public long getMobileno() {
 		return mobileno;
 	}
 
-	public void setMobileno(String mobileno) {
+	public void setMobileno(long mobileno) {
 		this.mobileno = mobileno;
 	}
 

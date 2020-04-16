@@ -24,7 +24,17 @@ public class TransactServiceImpl implements TransactService {
 	
 	@Override
 	public TransactionHistory savetransdata(TransRequest transrequest){
+		System.out.println("TransactServiceImple ***************************************");
+		System.out.println("TransReq: "+transrequest.getTransid()
+		+"\t fromMobile: "+transrequest.getFrmmobilenumber()
+		+"\t toMobile: "+transrequest.getTomobilenumber()
+		+"\t amount: "+transrequest.getAmount()
+		+"\t comment: "+transrequest.getComment()
+		+"\t transDate: "+transrequest.getTransdate()
+				);
+		
 		ResponseEntity<Customerdetails> okstatus=transclient.checktransRequest(transrequest);
+		System.out.println("okstatus: "+okstatus+"\t getBody: "+okstatus.getBody()+"\t\t "+okstatus.getBody().getCid());
 		TransactionHistory trans=new TransactionHistory();
 		try {
 		if(okstatus.getBody().getCid()>0) {
